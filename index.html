@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <title>Map Filtering</title>
+</head>
+<body>
+
+  <section>
+
+    <div class="map-wrapper">
+
+        <div class="filter-bar">
+
+            <form name="filter">
+
+              <div class="filter-all">
+                  
+                <h4>Filter By:</h4>
+
+                  <div class="radio-btns">
+
+                  <div class="filter-radio">
+                    <input type="radio" id="radio10" name="select-top" value="Topten" onchange="topten(this.value)"> 
+                    <label for="radio10">Top 10</label>
+                  </div>
+
+                  <div class="filter-radio">
+                    <input type="radio" id="radio25" name="select-top" value="Top25" onchange="toptwenty(this.value)">
+                    <label for="radio25">Top 25</label>
+                  </div>
+
+                  <div class="filter-radio">
+                    <input type="radio" id="radio50" name="select-top" value="Top50" onchange="topfifty(this.value)">
+                    <label for="radio50">Top 50</label>
+                  </div>
+
+                  <div class="filter-radio">
+                    <input type="radio" id="all" name="select-top" value="all" onchange="showAll(this.value)">
+                    <label for="all">All</label>
+                  </div>
+
+                </div>
+
+               
+
+            
+
+              </div>
+              
+
+              <div class="select-boxes">
+                
+                  <div class="filter-group">
+                    <label for="market">Market</label>
+                    <select id="market" onchange="filterMarkers(this.value);">
+                    </select>
+                  </div>
+          
+                  <div class="filter-group">
+                    <label for="region" >Region</label>
+                    <select class="filter" id="region" onchange="filterRegion(this.value);">
+                    </select>
+                  </div>
+
+                  <div class="filter-group">
+                    <label for="state" >State</label>
+                    <select class="filter" id="state" onchange="filterState(this.value);">
+                    </select>
+                  </div>
+
+                </div>
+<button class="clear-filter" onclick="clearFilter(this.value);">Clear Filter</button>
+                
+
+              </form>
+
+        </div>
+
+        <div class="map-section">
+
+            <div id="map"></div>
+            
+        </div>
+
+    </div>
+
+    <div class="table">
+      <table id="myTable">
+        <thead>
+          <tr>
+            <th>Organization</th>
+            <th>National Ranking</th>
+            <th>Market Ranking</th>
+            <th>Market</th>
+          </tr>
+        </thead>
+
+        <tbody id="tContent"></tbody>
+<!-- 
+        <tfoot>
+            <tr>
+
+              <td><button class="" id="PreValue">Previous</button></td>
+
+              <td colspan="2">
+                <div class="nav">
+                </div>
+              </td>
+
+              <td><button class="" id="nextValue">Next</button></td>
+
+            </tr>
+        </tfoot> -->
+
+      </table>
+
+     
+
+    </div>
+    
+
+</section>
+
+   
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApxmzZVIbXnXWaFJPLgerysjZk5CgjlWM&callback=initMap&v=weekly"></script>
+    <script src="assets/vendors/jquery.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script src="assets/vendors/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer.js"></script>
+
+      
+</body>
+</html>
+
